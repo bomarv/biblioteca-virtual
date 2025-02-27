@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Repositorio Virtual - Facultad de Ingeniería y TI</title>
+  <style>
+    /* ========== Estilos Generales ========== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    /* Encabezado reducido (del ejemplo anterior) */
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1E3D58;
+      color: #fff;
+      padding: 5px 10px;
+    }
+    .header-container .logo {
+      max-height: 40px;
+      height: auto;
+      width: auto;
+    }
+    .header-container .faculty-info {
+      text-align: right;
+      font-size: 0.85em; 
+    }
+    .header-container .faculty-info h1 {
+      font-size: 1.3em; 
+      margin-bottom: 3px;
+    }
+    .header-container .faculty-info p {
+      font-size: 0.9em;
+      margin: 0;
+    }
+
+    /*
+      CUADRO DE BIENVENIDA DISMINUIDO
+      - padding: de 40px 20px a 30px 20px
+      - margin-bottom: de 30px a 20px
+    */
+    .welcome-message {
+      position: relative;
+      background: url("https://bomarv.github.io/biblioteca-virtual/cibertec.jpg") center/cover no-repeat;
+      color: #fff;
+      text-align: center;    
+      padding: 30px 20px;  /* Disminuido de 40px a 30px */
+      margin-bottom: 20px; /* Disminuido de 30px a 20px */
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .welcome-message::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(34, 80, 155, 0.8);
+      z-index: 0;
+      border-radius: 8px;
+    }
+    .welcome-message h2,
+    .welcome-message p {
+      position: relative;
+      z-index: 1; 
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      max-width: 800px;
+      margin: 0 auto 10px auto; 
+    }
+    .welcome-message h2 {
+      font-size: 2em;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    .welcome-message p {
+      font-size: 1.1em;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    /* Contenedor Principal */
+    main {
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+      padding: 0 20px;
+    }
+    main h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sección de Cursos */
+    .courses {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .course-card {
+      background-color: #fff;
+      width: 300px;
+      min-height: 200px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .course-card:hover {
+      transform: scale(1.02);
+    }
+    .course-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .course-content {
+      padding: 15px;
+    }
+    .course-content h2 {
+      margin-bottom: 10px;
+      color: #1E3D58;
+      font-size: 1.2em;
+    }
+    .course-content p {
+      margin-bottom: 15px;
+      line-height: 1.4;
+      font-size: 0.95em;
+    }
+    .course-content a {
+      display: inline-block;
+      background-color: #1E3D58;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .course-content a:hover {
+      background-color: #0d2e46;
+    }
+
+    /* Pie de Página */
+    footer {
+      background-color: #1E3D58;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5px 10px; 
+      }
+      .header-container .logo {
+        margin-bottom: 5px;
+      }
+      .header-container .faculty-info {
+        text-align: center;
+        font-size: 0.8em; 
+      }
+      .header-container .faculty-info h1 {
+        font-size: 1.2em;
+      }
+      .welcome-message {
+        padding: 20px; /* Mantén un poco de espacio en móvil */
+        margin-bottom: 20px;
+      }
+      .welcome-message h2 {
+        font-size: 1.6em;
+      }
+      .courses {
+        flex-direction: column;
+        align-items: center;
+      }
+      .course-card {
+        width: 80%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado reducido -->
+  <header class="header-container">
+    <img 
+      src="https://bomarv.github.io/biblioteca-virtual/Cibertec%20blanco_L1.png"
+      alt="Logo del Centro"
+      class="logo"
+    />
+    <div class="faculty-info">
+      <h1>Facultad de Ingeniería y TI</h1>
+      <p>Repositorio Virtual</p>
+    </div>
+  </header>
+
+  <!-- Cuadro de Bienvenida con tamaño un poco más reducido -->
+  <section class="welcome-message">
+    <h2>¡Bienvenidos!</h2>
+    <p>Encuentra aquí tus tutoriales, videos y materiales para reforzar tu aprendizaje.</p>
+  </section>
+
+  <!-- Contenido Principal -->
+  <main>
+    <h2>Cursos Disponibles</h2>
+    <div class="courses">
+      <!-- Tarjeta de Cálculo -->
+      <div class="course-card">
+        <img 
+          src="https://bomarv.github.io/biblioteca-virtual/calculo.webp" 
+          alt="Cálculo"
+        />
+        <div class="course-content">
+          <h2>Cálculo</h2>
+          <p>Problemas lógicos y algebraicos aplicados a la ingeniería.</p>
+          <a href="#" target="_blank">Ver</a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de Matemática I -->
+      <div class="course-card">
+        <img 
+          src="https://bomarv.github.io/biblioteca-virtual/matematicas_1.webp" 
+          alt="Matemática I"
+        />
+        <div class="course-content">
+          <h2>Matemática I</h2>
+          <p>Ejercicios de álgebra proposicional y fundamentos de álgebra básica.</p>
+          <a href="#" target="_blank">Ver</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer>
+    <p>© 2025 - Facultad de Ingeniería y TI</p>
+    <p>Desarrollado por Equipo de Ingeniería</p>
+  </footer>
+
+</body>
+</html>
